@@ -9,9 +9,7 @@
 #define SERVERNETCONNECTION_H_
 
 #include "../connection.h"
-#include <asio.hpp>
 #include <deque>
-#include <boost/shared_ptr.hpp>
 #include "SocketStream.h"
 
 class ServerNetConnection : public NetConnection {

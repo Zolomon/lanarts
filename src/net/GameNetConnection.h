@@ -8,7 +8,7 @@
 #ifndef GAMENETCONNECTION_H_
 #define GAMENETCONNECTION_H_
 
-#include <net/connection.h>
+#include <SDL/SDL_net.h>
 #include <net/packet.h>
 #include <vector>
 
@@ -24,7 +24,7 @@ public:
 	GameNetConnection(int our_peer_id) {
 		connect = NULL;
 	}
-	GameNetConnection(NetConnection* connect = NULL);
+	GameNetConnection(TCPsocket* connect = NULL);
 	~GameNetConnection();
 
 	void add_peer_id(int peer_id);
@@ -57,7 +57,7 @@ public:
 private:
 	std::vector<int> peer_ids;
 	int our_peer_id;
-	NetConnection* connect;
+	TCPsocket* connect;
 };
 
 #endif /* GAMENETCONNECTION_H_ */

@@ -1,28 +1,12 @@
 #include "ServerNetConnection.h"
-#include <boost/bind.hpp>
 
 typedef boost::shared_ptr<SocketStream> stream_ptr;
 
-void ServerNetConnection::get_peer_packets(std::vector<NetPacket> & packets) {
-	packets.resize(get_number_peers());
-	for (int i = 0; i < packets.size(); i++) {
-
-	}
-}
-
-void ServerNetConnection::async_read(SocketStream* ss) {
-	asio::async_read(
-			ss->get_socket(),
-			asio::buffer(ss->last_message().data, NetPacket::HEADER_LEN),
-			boost::bind(socketstream_read_header_handler, ss,
-					asio::placeholders::error));
-}
 void ServerNetConnection::finalize_connections() {
 	accepting_connections = false;
 }
 
-void ServerNetConnection::accept_handler(SocketStream* ss,
-		const asio::error_code& error) {
+void ServerNetConnection::accept_handler(SocketStream* ss) {
 	if (!error) {
 //		if (!accepting_connections) {
 //			if (ss)

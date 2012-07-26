@@ -9,8 +9,8 @@
 
 #include "GameNetConnection.h"
 
-GameNetConnection::GameNetConnection(NetConnection *connect) :
-		connect(connect) {
+GameNetConnection::GameNetConnection(NetConnection *connect){
+	this->connect = connect;
 }
 
 GameNetConnection::~GameNetConnection() {
@@ -24,7 +24,7 @@ void GameNetConnection::add_peer_id(int peer_id) {
 void GameNetConnection::broadcast_packet(const NetPacket & packet,
 		bool send_to_new) {
 	if (connect) {
-		connect->broadcast_packet(packet, send_to_new);
+		SDLNet_TCP_Send(connect, packet, packet.length());
 	}
 }
 

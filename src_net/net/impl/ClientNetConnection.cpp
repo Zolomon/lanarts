@@ -1,8 +1,6 @@
 #include "ClientNetConnection.h"
-#include <boost/bind.hpp>
+#include <SDL/SDL_net.h>
 #include <exception>
-
-using namespace asio::ip;
 
 void client_connect_handler(ClientNetConnection* cnc,
 		const asio::error_code& error,
@@ -77,14 +75,6 @@ ClientNetConnection::~ClientNetConnection() {
 
 bool ClientNetConnection::get_next_packet(NetPacket& packet, packet_t type) {
 	return stream.get_next_packet(packet, type);
-	/*while (true){
-	 if (packet.packet_type == NetPacket::PACKET_ASSIGN_PEERID){
-	 peer_id = packet.get_int();
-	 } else if (packet.packet_type == NetPacket::PACKET_BROADCAST_PEERLISTSIZE){
-	 number_of_peers = packet.get_int();
-	 } else break;
-	 stream.get_next_packet(packet);
-	 }*/
 }
 
 void ClientNetConnection::broadcast_packet(const NetPacket & packet,

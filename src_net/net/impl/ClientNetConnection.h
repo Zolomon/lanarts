@@ -9,9 +9,8 @@
 #define CLIENTNETCONNECTION_H_
 
 #include "../connection.h"
-#include <asio.hpp>
 #include "SocketStream.h"
-#include <boost/shared_ptr.hpp>
+#include <SDL/SDL_net.h>
 
 class ClientNetConnection : public NetConnection {
 public:

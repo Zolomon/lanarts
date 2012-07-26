@@ -35,7 +35,12 @@ using namespace std;
 void init_system(GameSettings& settings, lua_State* L) {
 	settings = load_settings_data("res/settings.yaml");
 	if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
-		exit(0);
+		printf("SDL_Init: %s\n", SDL_GetError());
+		exit(1);
+	}
+	if(SDLNet_Init()==-1) {
+		printf("SDLNet_Init: %s\n", SDLNet_GetError());
+		exit(2);
 	}
 	init_sdl_gl(settings.fullscreen, settings.view_width, settings.view_height);
 	init_game_data(L);

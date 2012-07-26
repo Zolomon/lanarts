@@ -66,7 +66,7 @@ private:
 	boost::mutex rmutex, wmutex;
 	NetPacket read_message;
 	asio::io_service& io_service;
-	asio::ip::tcp::socket socket;
+	TCPsocket socket;
 	std::vector<boost::shared_ptr<NetPacket> > peerpackets;
 	PacketQueue reading_msgs, writing_msgs;
 };
