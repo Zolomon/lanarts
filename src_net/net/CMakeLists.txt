@@ -1,8 +1,6 @@
 cmake_minimum_required( VERSION 2.8 )
 PROJECT(project_lanarts_tcp)
 
-FIND_PACKAGE(Boost REQUIRED)
-
 add_definitions(-DBOOST_ALL_NO_LIB=1)
 
 set( CMAKE_CXX_FLAGS_RELEASE "-O3" )
@@ -30,5 +28,5 @@ set( lanarts_tcp_include
 
 add_library( lanarts_tcp
              ${lanarts_tcp_src}
-             ${lanarts_tcp_include} 
+             ${lanarts_tcp_include}
 )

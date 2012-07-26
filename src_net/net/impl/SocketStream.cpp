@@ -1,5 +1,4 @@
 #include "ClientNetConnection.h"
-#include <boost/bind.hpp>
 #include <string>
 
 using namespace asio::ip;

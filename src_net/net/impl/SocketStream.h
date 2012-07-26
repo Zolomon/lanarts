@@ -9,11 +9,9 @@
 #define SOCKETSTREAM_H_
 
 #include "../connection.h"
-#include <asio.hpp>
 #include <deque>
 #include <list>
 #include <vector>
-#include <boost/thread/mutex.hpp>
 
 class SocketStream;
 //Handler declarations

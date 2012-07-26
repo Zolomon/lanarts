@@ -2,6 +2,7 @@
 #define __CONNECTION_H_
 
 #include "packet.h"
+#include <SDL/SDL_net.h>
 #include <vector>
 
 class NetConnection {
